@@ -1,0 +1,455 @@
+/* Basic Reset and Variables */
+:root {
+    --primary-color: #4CAF50; /* Green */
+    --secondary-color: #f4f4f4; /* Light Grey */
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 1.8em;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Quiz Container */
+main.quiz-container {
+    flex-grow: 1; /* Allows main content to take up available space */
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+/* Question Area */
+#question-area {
+    margin-bottom: 30px;
+}
+
+#question-text {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Answer Buttons */
+#answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two buttons per row */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    padding: 15px 20px;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1em;
+}
+
+.btn:hover:not([disabled]) {
+    background-color: #ddd;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+}
+
+/* Correct/Incorrect feedback for buttons */
+.correct {
+    background-color: #9ae89a; /* Light Green for Correct */
+    color: #1a5a1a;
+}
+
+.incorrect {
+    background-color: #ff9a9a; /* Light Red for Incorrect */
+    color: #8c0000;
+}
+
+/* Next Button and Score */
+#next-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+#next-btn:hover {
+    background-color: #3e8e41; /* Darker Green */
+}
+
+.hide {
+    display: none;
+}
+
+#score-area {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: var(--white);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+}/* --- Study Materials Page Styling --- */
+
+/* Ensures the study container is styled similarly to the quiz container */
+.study-container {
+    flex-grow: 1; 
+    width: 90%;
+    max-width: 900px; /* Wider content area for notes */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: left; /* Align text to the left */
+}
+
+.study-container h2 {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Individual Material Card Styling */
+.material-card {
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border-left: 5px solid var(--primary-color); /* Highlight with primary color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.material-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+
+.material-card ul, .material-card ol {
+    margin: 15px 0 15px 25px;
+}
+
+.material-card li {
+    margin-bottom: 5px;
+}
+
+/* Specific card styles (optional) */
+.material-card.science {
+    border-left-color: #f39c12; /* Orange for Science */
+}
+
+.material-card.programming {
+    border-left-color: #3498db; /* Blue for Programming */
+}
+
+/* Flashcard styles */
+.flashcard {
+    background-color: var(--white);
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.flashcard .answer {
+    font-weight: bold;
+    color: #c0392b; /* Reddish color for answers */
+    margin-top: 5px;
+}
+
+/* Download Link Button Style */
+.download-link {
+    display: inline-block;
+    background-color: #34495e; /* Darker color */
+    color: var(--white);
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.download-link:hover {
+    background-color: #2c3e50;
+}/* --- Quiz Selection Screen Styling --- */
+
+/* Ensure the selection container looks like the main quiz container */
+.quiz-selection-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.quiz-selection-container h2 {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+/* Style for the quiz selection buttons */
+.quiz-select-btn {
+    display: block; /* Make buttons full width */
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 15px 25px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.quiz-select-btn:hover {
+    background-color: #3e8e41; /* Darker Green */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Updated hide class to ensure elements truly disappear */
+.hide {
+    display: none !important;
+}/* --- Video Library Page Styling --- */
+
+/* Basic container structure, similar to study page */
+.video-library-container {
+    flex-grow: 1; 
+    width: 90%;
+    max-width: 900px; 
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+.video-library-container h2 {
+    text-align: center;
+}
+
+/* Style for individual video cards */
+.video-card {
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-top: 5px solid var(--primary-color); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-card h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+/* Responsive Video Embed Wrapper */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background: black; /* Background color while loading video */
+    border-radius: 5px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Specific color hints for cards */
+.video-card.science {
+    border-top-color: #3498db; /* Blue */
+}
+
+.video-card.programming {
+    border-top-color: #f39c12; /* Orange */
+}/* --- Header Layout Adjustments for Top Button --- */
+
+header {
+    /* Keep existing header styles, but ensure flex properties are set */
+    display: flex;
+    justify-content: space-between; /* Space out title and right section */
+    align-items: center;
+    /* ... (other header styles) ... */
+}
+
+.header-right {
+    display: flex; /* Allows nav and button to sit side-by-side */
+    align-items: center;
+    gap: 20px; /* Space between navigation and button */
+}
+
+/* --- Top Subscribe Button Styling --- */
+
+.subscribe-btn-top {
+    /* Similar styling to the footer button, but smaller and integrated with nav */
+    background-color: #ff0000; /* YouTube Red */
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 15px; /* Slightly smaller padding */
+    border-radius: 50px;
+    font-size: 0.9em; /* Slightly smaller font */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.subscribe-btn-top:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: translateY(-1px);
+}
+
+/* Optional: Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack items vertically */
+        padding: 15px;
+    }
+
+    .header-right {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    nav {
+        display: flex; /* Keep nav links horizontal if space allows */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .subscribe-btn-top {
+        width: 100%; /* Make the button full width on small screens */
+        text-align: center;
+    }
+}/* --- Footer Styling with Subscribe Button --- */
+
+footer {
+    background-color: var(--text-color); /* Dark background */
+    color: var(--white);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* Pushes footer to the bottom of the viewport */
+    
+    /* Ensure footer items are centered vertically and stacked */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style for the Footer Subscribe Button */
+.subscribe-btn {
+    display: inline-block;
+    background-color: #ff0000; /* YouTube Red */
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 20px;
+    margin-bottom: 10px; /* Space between button and copyright text */
+    border-radius: 50px; /* Pill shape */
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 8px #0000004d;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.subscribe-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift */
+}
+
+/* Style for the copyright text */
+footer p {
+    font-size: 0.85em;
+    margin: 5px 0;
+}
